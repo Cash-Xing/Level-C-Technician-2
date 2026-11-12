@@ -124,37 +124,41 @@
         // $()裡面可以放css選擇器，會回傳一個物件。裡面有所有符合的元素
         // 任務:點擊小圖，換大圖
         // 1.先抓到所有小圖，並進行each()的迴圈逐一拜訪
-        $('.small').each(function (index, img) {
+        // $('.small').each(function (index, img) {
             // index 當下小圖的索引值，從0開始 ，img 當下小圖的元素
             // console.log(index,img)
             // 2.替每張小圖加上點擊事件，注意img是沒有''單引，""雙引號
-            $(img).on('click', function () {
+            // $(img).on('click', function () {
                 // attr是attribute縮寫
                 // index 是 0、1、2、3
                 // 那怎麼將檔名變成2、3、4、5呢?
-                $('#big').attr('src', `../images/020${index + 2}A.png`)
-            })
+        //         $('#big').attr('src', `../images/020${index + 2}A.png`)
+        //     })
 
-        })
+        // })
 
         // 另一種作法
-        $('.small').click(function () {
+        // $('.small').click(function () {
             // 一個參數叫取值 src
             // this 是當下小圖的元素
             // 取得當下小圖的src屬性值，並存到small_pic 變數
             // 例如:../images/0202B.png
-            let small_pic = $(this).attr('src')
+            // let small_pic = $(this).attr('src')
             // 將small_pic的B改成A，存到big_pic變數
             // 例如:../images/0202B.png =>../images/0202A.pmg
-            let big_pic = small_pic.replace('B', 'A')
+            // let big_pic = small_pic.replace('B', 'A')
 
             // 兩個參數叫設定值
             // 最後再將big_pic設定給大圖的src屬性
-            $('#big').attr('src', big_pic)
-        })
+        //     $('#big').attr('src', big_pic)
+        // })
         // 物件會有自己的屬性與方法
         // 例如字串的屬性是length、方法是replace()...
         // 陣列也是一種物件，屬性是length、方法是push()、pop()、filter()、map()...等
+        $('.small').click(function (e) {
+            $('#big').attr('src', e.target.src.replace('B', 'A'))
+        })
+
     </script>
 </body>
 
